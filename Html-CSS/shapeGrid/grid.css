@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* {
+  font-size: 20px;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  background-color: green;
+}
+
+.leftText {
+  flex-basis: 30%;
+}
+
+.rightImg {
+  flex-basis: 50%;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  /* give the 3 columns 1fr size */
+  grid-auto-rows: 120px;
+  background-size: cover;
+  background-position: center;
+}
+
+.box {
+  /* To get the text which is on image in center of image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* -- */
+  background-color: #222;
+  background-blend-mode: hard-light;
+}
+/* #box-1 {
+  grid-column: span 2;
+} */
+
+.row-2 {
+  grid-row: span 2;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
