@@ -51,3 +51,19 @@
 .col-2 {
   grid-column: span 2;
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding-block: 20px;
+  }
+  .rightImg {
+    width: 100%;
+    padding-inline: 12px;
+    grid-auto-rows: 220px;
+  }
+  .box {
+    grid-row: span 1;
+    grid-column: span 3;
+  }
+}
