@@ -44,7 +44,7 @@ const users = [
 
 const app = express();
 
-app.use(express.json()); // Has to be used for using postman
+app.use(express.json()); // Has to be used for using post, basically accesses the body
 
 // GET METHOD
 app.get("/", function (req, resp) {
