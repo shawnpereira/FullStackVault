@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const jwtPassword = "123456";
 
 const app = express();
-
+app.use(express.json());
 const ALL_USERS = [
   {
     username: "manoj@gmail.com",
@@ -45,18 +45,26 @@ app.post("/signin", function (req, res) {
     });
   }
 
-  var token = jwt.sign({ username: username }, "shhhhh");
+  var token = jwt.sign({ username: username }, jwtPassword);
   return res.json({
-    token,
+    token, // generates jwt token using server inbuilt password
   });
 });
 
 app.get("/users", function (req, res) {
-  const token = req.headers.authorization;
+  const token = req.headers.authorization; //takes the jwt token
   try {
-    const decoded = jwt.verify(token, jwtPassword);
+    const decoded = jwt.verify(token, jwtPassword); // verives the above generated token with the password of server
     const username = decoded.username;
-    // return a list of users other than this username
+    return res.json({
+      users: ALL_USERS.filter(function (value) {
+        if (value.username == username) {
+          return false;
+        } else {
+          return true;
+        }
+      }),
+    });
   } catch (err) {
     return res.status(403).json({
       msg: "Invalid token",
