@@ -26,6 +26,8 @@ function userIdMiddleware(req, resp, next) {
   }
 }
 
+// ---------app.use(userIdMiddleware)------ // with this we dont have to include the userIdMiddleware below in any methods, when we add app.use(userIdMiddleware); it means that to use that middleware everywhere on the methods without having to pass it inside the function
+
 app.get("/", userMiddleware, userIdMiddleware, function (req, resp) {
   resp.json({
     msg: "Access granted",
