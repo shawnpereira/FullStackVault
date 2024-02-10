@@ -6,7 +6,7 @@ const userRouter = require("./routes/user");
 
 // Middleware for parsing request bodies
 app.use(bodyParser.json());
-app.use("/admin", adminRouter);
+app.use("/admin", adminRouter); // basically means that whatever comes at /admin it will be moved to adminRouter. Eg /admin/asda/asaf or anything
 app.use("/user", userRouter);
 
 const PORT = 3000;
