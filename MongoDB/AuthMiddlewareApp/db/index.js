@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 // Connect to MongoDB
 mongoose.connect(
-  "mongodb+srv://ShawnSource:make12345sp@source.qzqbsmt.mongodb.net/"
+  "mongodb+srv://ShawnSource:make12345sp@source.qzqbsmt.mongodb.net/" // if after .net/ we write some name, then that DB will be created, since we did not do that we got a default as "test" under which our admin, users, course is mentioned
+  // we could have .net/CourseApp and that would not create test and create CourseApp
 );
 
 // Define schemas
