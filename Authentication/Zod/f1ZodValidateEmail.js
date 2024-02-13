@@ -7,7 +7,7 @@ function validateUser(obj) {
   });
 
   const validationResult = schema.safeParse(obj);
-
+  //safeParse returns success or fail if it matches the schema of zod
   console.log(validationResult);
 }
 
