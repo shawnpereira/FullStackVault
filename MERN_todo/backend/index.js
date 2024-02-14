@@ -29,9 +29,15 @@ app.post("/todo", async function (req, res) {
 });
 
 app.get("/todos", async function (req, res) {
-  await res.json({
-    todos: [],
-  });
+  try {
+    const todos = await todo.find({});
+    res.json({
+      todos: todos,
+    });
+  } catch (error) {
+    console.error("Error fetching todos:", error);
+    res.status(500).json({ error: "Error fetching todos" });
+  }
 });
 
 app.put("/completed", async function (req, res) {
