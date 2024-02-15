@@ -4,6 +4,13 @@ const { todo } = require("./db");
 
 const app = express();
 
+const cors = require("cors"); // allows frontend to hit this backend server
+app.use(cors());
+// if you want to restrict for the backend server to hit only one end point we can do it as
+// cors({
+//   origin: "url",
+// })
+
 app.use(express.json());
 
 app.post("/todo", async function (req, res) {
