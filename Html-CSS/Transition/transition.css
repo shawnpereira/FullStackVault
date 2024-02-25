@@ -1,0 +1,46 @@
+/* .box {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(138, 138, 215);
+  margin: 30px auto;
+  transition: 0.2s;
+}
+/* ON hovering, the box will turn into purple color and a circle with taking 2s time for doing it */
+/* .box:hover {
+  background-color: purple;
+  border-radius: 50%;
+} */
+.box {
+  margin: 100px auto;
+  width: 200px;
+  height: 200px;
+  background-color: teal;
+  transition-duration: 1s;
+  transition-property: border-radius, background-color, transform;
+  transition-delay: 0.1s;
+  transition-timing-function: cubic-bezier(0.74, -0.31, 0.6, 3.22);
+}
+
+.box:hover {
+  /* Used for zooming in and out.. basically takes scales the box to 1.2 to parent */
+  transform: scaleX(1.2);
+}
+
+.list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.item {
+  font-size: 2rem;
+  padding: 8px 16px;
+  transition: 0.3s ease-in;
+}
+
+.item:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  transform: translateX(-10px);
+}
