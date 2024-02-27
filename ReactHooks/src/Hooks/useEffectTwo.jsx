@@ -49,7 +49,7 @@ function Todo({ id }) {
       setTodo(json.todo);
     });
   }, [id]);
-
+  //Only fetches when id renders
   return (
     <div>
       <h1>{todo.title}</h1>

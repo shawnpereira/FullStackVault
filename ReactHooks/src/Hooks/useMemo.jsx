@@ -20,6 +20,6 @@ const App = () => {
 
 const Render = memo(function Render({ title }) {
   return <div>{title}</div>;
-});
+}); // can add parameter in [] for memo so on changing that, it will render
 
 export default App;
