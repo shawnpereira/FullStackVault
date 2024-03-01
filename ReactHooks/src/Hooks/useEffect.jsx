@@ -1,32 +1,27 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  return (
-    <div>
-      <Todo id={1} />
-    </div>
-  );
-}
-//Fetching data from a backend
-function Todo({ id }) {
-  const [todo, setTodo] = useState({});
-
+  const [exchangeData, setExchangeData] = useState({});
+  const [bankData, setBankData] = useState({});
+  //Without useEffect the website will go in a loop or rendering again and again
   useEffect(() => {
-    fetch("https://sum-server.100xdevs.com/todo?id=" + id).then(async function (
-      res
-    ) {
-      const json = await res.json();
-      setTodo(json.todo);
-    });
+    setTimeout(() => {
+      setBankData({
+        income: 300,
+      });
+    }, 1000);
+  }, []); // we add [] dependency array as it will make it run only once when the website loads
+  useEffect(() => {
+    setTimeout(() => {
+      setExchangeData({
+        returns: 100,
+      });
+    }, 1000);
   }, []);
 
-  return (
-    <div>
-      <h1>{todo.title}</h1>
-      <h4>{todo.description}</h4>
-    </div>
-  );
+  const incomeTax = (bankData.income + exchangeData.returns) * 0.3;
+
+  return <div>hi there, your income tax returns are {incomeTax}</div>;
 }
 
 export default App;
