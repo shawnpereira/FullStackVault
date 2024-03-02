@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CreateTodo from "./Components/CreateTodo";
-import Todos from "./Components/Todos";
+import CreateTodo from "./components/CreateTodo";
+import Todos from "./components/Todos";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
