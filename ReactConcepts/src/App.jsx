@@ -1,26 +1,7 @@
-import "./App.css";
-import { RecoilRoot, useRecoilState } from "recoil";
-import { todosAtomFamily } from "./recoil/selectorFamily(fetching)EG5/atoms";
+import React from "react";
 
-function App() {
-  return (
-    <RecoilRoot>
-      <Todo id={1} />
-      <Todo id={2} />
-    </RecoilRoot>
-  );
-}
-
-function Todo({ id }) {
-  const [todo, setTodo] = useRecoilState(todosAtomFamily(id));
-
-  return (
-    <>
-      {todo.title}
-      {todo.description}
-      <br />
-    </>
-  );
-}
+const App = () => {
+  return <div>App</div>;
+};
 
 export default App;
