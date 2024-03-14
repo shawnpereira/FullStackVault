@@ -1,0 +1,66 @@
+/* import React, { useEffect, useState } from "react";
+
+const App = () => {
+  const [input, setInput] = useState("");
+  const [display, setDisplay] = useState(getLocal());
+
+  // Add data to localStorage whenever display changes
+  useEffect(() => {
+    //we use stringify to convert data to string, list is a pre defined value in localStorage where strings are stored
+    localStorage.setItem("lists", JSON.stringify(display));
+  }, [display]);
+
+  // Function to retrieve data from localStorage
+  function getLocal() {
+    //we use parse to convert data to array as we are storing in array
+    const getValue = localStorage.getItem("lists");
+    return getValue ? JSON.parse(getValue) : [];
+  }
+
+  const add = () => {
+    const entireInput = { id: new Date().getTime().toString(), name: input };
+    //for the update feature, we are performing a function so each input gets a new id
+    setDisplay([...display, entireInput]);
+    setInput("");
+  };
+
+  const deleted = (idToDelete) => {
+    const updatedValue = display.filter((elem) => {
+      return idToDelete !== elem.id;
+    });
+    setDisplay(updatedValue);
+  };
+
+  const update = () => {};
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => {
+          setInput(e.target.value);
+        }}
+      ></input>
+      <button onClick={add}>Click me</button>
+
+      {display.map((elem) => {
+        return (
+          <div key={elem.id}>
+            <h1>{elem.name}</h1>
+            <button
+              onClick={() => {
+                deleted(elem.id);
+              }}
+            >
+              delete
+            </button>
+            <button onClick={update}>update</button>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default App; */
