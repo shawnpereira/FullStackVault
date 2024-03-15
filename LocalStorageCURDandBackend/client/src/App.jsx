@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -28,9 +29,19 @@ const App = () => {
   //
   //
   //Create
-  const add = () => {
+  const add = async () => {
     setDisplay([...display, input]);
     setInput("");
+
+    const data = {
+      title: input,
+    };
+    try {
+      await axios.post("http://localhost:3000/work/", data);
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
   //
   //
