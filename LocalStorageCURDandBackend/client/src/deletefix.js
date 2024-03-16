@@ -10,9 +10,6 @@ const App = () => {
   //
   //
   //
-  useEffect(() => {
-    getData();
-  }, []);
   //
   // Add data to localStorage whenever display changes
   useEffect(() => {
@@ -42,7 +39,7 @@ const App = () => {
     try {
       await axios.post("http://localhost:3000/work/", data);
       console.log(data);
-      getData(); // getData function so data can be retrieved
+      getData();
     } catch (e) {
       console.log(e);
     }
@@ -57,11 +54,10 @@ const App = () => {
     });
     setDisplay(updatedValue);
     await axios.delete(`http://localhost:3000/work/${idToDelete}`);
-    getData(); // getData function so data can be retrieved
+    getData();
   };
   //
   //
-  //get function
   const getData = async () => {
     try {
       const response = await axios.get("http://localhost:3000/work/");
@@ -77,10 +73,9 @@ const App = () => {
     let updatedItem = display.find((elem, index) => {
       return index == id;
     });
-
     //toggle it
     setToggleSubmit(false);
-
+    //logic to edit
     setInput(updatedItem);
     //using the "updatedValue" useState
     setUpdatedValue(id); // we get the id of value we want to update
@@ -95,6 +90,9 @@ const App = () => {
     setToggleSubmit(true); // Switch back to "Add" mode
   }
   //
+  useEffect(() => {
+    getData();
+  }, []);
 
   //
   console.log(display);
@@ -135,7 +133,7 @@ const App = () => {
             </button>
             <button
               onClick={() => {
-                update(elem._id);
+                update(index);
               }}
             >
               update
@@ -148,3 +146,13 @@ const App = () => {
 };
 
 export default App;
+
+//
+//Another method to get unique id
+//const add = () => {
+// const entireInput = { id: new Date().getTime().toString(), name: input };
+//for the update feature, we are performing a function so each input gets a new id
+// setDisplay([...display, entireInput]);
+// setInput("");
+// };
+//
