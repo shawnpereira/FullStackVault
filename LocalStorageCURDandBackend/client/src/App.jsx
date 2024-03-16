@@ -73,26 +73,40 @@ const App = () => {
   };
   //
   //Update
-  const update = (id) => {
-    let updatedItem = display.find((elem, index) => {
-      return index == id;
-    });
-
-    //toggle it
+  const update = async (id) => {
+    setUpdatedValue(id);
+    console.log(id);
+    try {
+      const response = await axios.get(`http://localhost:3000/work/${id}`);
+      setInput(response.data.title);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
     setToggleSubmit(false);
-
-    setInput(updatedItem);
-    //using the "updatedValue" useState
-    setUpdatedValue(id); // we get the id of value we want to update
   };
+
   //
-  //save
-  function save() {
-    const updatedDisplay = [...display]; // Create a copy of the display array
-    updatedDisplay[updatedValue] = input; // so "updatedDisplay[updatedValue]" is basically pointing to the index in the entire display, so now whatever is there at "input" is been fed inside that index
-    setDisplay(updatedDisplay); // Update the display state with the edited item
-    setInput(""); // Clear the input field
-    setToggleSubmit(true); // Switch back to "Add" mode
+
+  async function save() {
+    const updatedDisplay = [...display];
+    updatedDisplay[updatedValue] = input;
+    setDisplay(updatedDisplay);
+    setInput("");
+
+    try {
+      const response = await axios.put(
+        `http://localhost:3000/work/${updatedValue}`,
+        {
+          title: input,
+        }
+      );
+      getData();
+      console.log("Data saved successfully:", response.data);
+    } catch (error) {
+      console.error("Error saving data:", error);
+    }
+    setToggleSubmit(true);
   }
   //
 

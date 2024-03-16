@@ -64,7 +64,7 @@ const App = () => {
     updatedDisplay[updatedValue] = input; // so "updatedDisplay[updatedValue]" is basically pointing to the index in the entire display, so now whatever is there at "input" is been fed inside that index
     setDisplay(updatedDisplay); // Update the display state with the edited item
     setInput(""); // Clear the input field
-    setToggleSubmit(true); // Switch back to "Add" mode
+    setInput(""); // Switch back to "Add" mode
   }
 
   //
