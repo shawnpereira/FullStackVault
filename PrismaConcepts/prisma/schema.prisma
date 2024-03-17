@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  //@default(autoincrement()) -- we want it to go from 1,2,3....
+  //@id -- primary key
+  //if you want to make it optional add a ?
+  username   String   @unique
+  password   String
+  firstName  String
+  lastName   String
+  todos      todo[] //every user will have multiple todo
+}
+
+model todo {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String
+  done        Boolean @default(false)
+  userId      Int 
+  user        User    @relation(fields: [userId], references: [id]) //every todo will have a relationship with user
+  //user        User    @relation(fields: [userId], references: [id])
+  //the abpve syntax means, "user" field name "User" name of the database and it has @relation with userId filed in the todo model (second last wala) and with the id in the user model
+}
