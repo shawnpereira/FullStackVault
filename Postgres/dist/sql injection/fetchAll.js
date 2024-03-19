@@ -20,7 +20,7 @@ function getAllUsers() {
             yield client.connect(); // Ensure client connection is established
             const result = yield client.query(`
       SELECT *
-      FROM users5
+      FROM addresses
       `);
             console.log(result.rows); // Output all fetched rows
         }

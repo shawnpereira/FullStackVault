@@ -10,27 +10,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const pg_1 = require("pg");
-// Async function to fetch all users from the addresses table
-function getAllUsers() {
+const client = new pg_1.Client({
+    connectionString: "postgresql://postgres:make12345sp@localhost:5432/postgres?sslmode=disable",
+});
+function insertAddress() {
     return __awaiter(this, void 0, void 0, function* () {
-        const client = new pg_1.Client({
-            connectionString: "postgresql://postgres:make12345sp@localhost:5432/postgres?sslmode=disable",
-        });
         try {
-            yield client.connect(); // Ensure client connection is established
-            const result = yield client.query(`
-      SELECT *
-      FROM users5
-      `);
-            console.log(result.rows); // Output all fetched rows
+            yield client.connect();
+            const query = `
+      INSERT INTO addresses (user_id, city, country, street, pincode)
+      VALUES ($1, $2, $3, $4, $5)
+    `;
+            const values = [1, "New York", "USA", "123 Broadway St", "10001"];
+            const result = yield client.query(query, values);
+            console.log("Address inserted successfully:", result.rowCount);
         }
         catch (error) {
-            console.error("Error fetching users:", error);
+            console.error("Error inserting address:", error);
         }
         finally {
-            yield client.end(); // Close the client connection
+            yield client.end();
         }
     });
 }
-// Example usage
-getAllUsers();
+insertAddress();

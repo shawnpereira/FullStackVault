@@ -10,27 +10,29 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const pg_1 = require("pg");
-// Async function to fetch all users from the addresses table
-function getAllUsers() {
+const client = new pg_1.Client({
+    connectionString: "postgresql://postgres:make12345sp@localhost:5432/postgres?sslmode=disable",
+});
+function getAddressForUser(userId) {
     return __awaiter(this, void 0, void 0, function* () {
-        const client = new pg_1.Client({
-            connectionString: "postgresql://postgres:make12345sp@localhost:5432/postgres?sslmode=disable",
-        });
         try {
-            yield client.connect(); // Ensure client connection is established
-            const result = yield client.query(`
-      SELECT *
-      FROM users5
-      `);
-            console.log(result.rows); // Output all fetched rows
+            yield client.connect();
+            const query = `
+      SELECT city, country, street, pincode
+      FROM addresses
+      WHERE user_id = $1
+    `;
+            const values = [userId];
+            const result = yield client.query(query, values);
+            console.log("Address details for user ID", userId, ":", result.rows);
         }
         catch (error) {
-            console.error("Error fetching users:", error);
+            console.error("Error retrieving address:", error);
         }
         finally {
-            yield client.end(); // Close the client connection
+            yield client.end();
         }
     });
 }
-// Example usage
-getAllUsers();
+// Example usage: Get address details for user ID 1
+getAddressForUser(1);
