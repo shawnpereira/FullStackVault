@@ -14,11 +14,11 @@ const pg_1 = require("pg");
 function getUser(email) {
     return __awaiter(this, void 0, void 0, function* () {
         const client = new pg_1.Client({
-            connectionString: "postgresql://postgres:make12345sp@localhost:5432/postgres?sslmode=disable",
+            connectionString: "postgresql://shawnpereiraswp:9OlVux0pLZBi@ep-white-silence-a58ilnw5.us-east-2.aws.neon.tech/test?sslmode=require",
         });
         try {
             yield client.connect(); // Ensure client connection is established
-            const query = "SELECT * FROM users5 WHERE email = $1";
+            const query = "SELECT * FROM users WHERE email = $1";
             const values = [email];
             const result = yield client.query(query, values);
             if (result.rows.length > 0) {
