@@ -10,22 +10,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const pg_1 = require("pg");
-// Async function to fetch all users from the addresses table
-function getAllUsers() {
+// Async function to fetch users and their addresses using a join query
+function getUsersWithAddresses() {
     return __awaiter(this, void 0, void 0, function* () {
         const client = new pg_1.Client({
             connectionString: "postgresql://postgres:make12345sp@localhost:5432/postgres?sslmode=disable",
         });
         try {
             yield client.connect(); // Ensure client connection is established
+            //inner join is,  if there is no entry for address of user, dont show me the user
             const result = yield client.query(`
-      SELECT *
+      SELECT users5.username, addresses.city, addresses.country, addresses.street, addresses.pincode
       FROM users5
+      INNER JOIN addresses ON users5.id = addresses.user_id;
+            
       `);
             console.log(result.rows); // Output all fetched rows
         }
         catch (error) {
-            console.error("Error fetching users:", error);
+            console.error("Error fetching users with addresses:", error);
         }
         finally {
             yield client.end(); // Close the client connection
@@ -33,4 +36,4 @@ function getAllUsers() {
     });
 }
 // Example usage
-getAllUsers();
+getUsersWithAddresses();
