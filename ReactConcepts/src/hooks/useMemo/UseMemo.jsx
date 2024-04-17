@@ -1,5 +1,8 @@
 import { Fragment, useState, memo } from "react";
 
+//useMemo can be used to not re render the expensive process if it is dependent on some state/input
+//however when it has a function, callback hook needs to be used
+
 const UseMemo = () => {
   const [name, setName] = useState("shawn");
   function Change() {

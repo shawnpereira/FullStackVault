@@ -22,11 +22,12 @@ function App() {
       setBankData({
         income: 100,
       });
-    });
+    }, 5000);
   }, []);
+  //so in useMEMO we only run the expensive operation when there is a change with respect to dependency array. It is similar to useEffect sort of however, useEffect cannot return
 
   const cryptoReturns = useMemo(() => {
-    console.log("render");
+    console.log("hello one");
     return exchange1Data.returns + exchange2Data.returns;
   }, [exchange1Data, exchange2Data]);
 
