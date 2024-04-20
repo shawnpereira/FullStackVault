@@ -2,8 +2,8 @@ import { useState, useCallback } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
+  //useCallback is about not rendering a child component if the function does not need to render
 
-  // Define a callback function using useCallback
   const handleClick = useCallback(() => {
     setCount(count + 1);
   }, [count]); // Dependency array: re-create the function only if count changes
