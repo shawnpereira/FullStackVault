@@ -16,6 +16,7 @@ const useDebounce = (inputValue, delay) => {
 
   return debouncedValue;
 };
+//So first when on input, the UseEffect will run, if there is one more input before the 500ms, then the cleanup function will start which will restart the useEffect hook
 
 // Main App component
 const App = () => {
