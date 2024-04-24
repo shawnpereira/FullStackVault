@@ -36,10 +36,8 @@ export default function Demo() {
   return (
     <div className="tutorial">
       <div>Count: {state.count}</div>
-      {state.error && <div className="mb-2 text-red-500">{state.error}</div>}
-      <button className="mb-2" onClick={() => dispatch({ type: "increment" })}>
-        Increment
-      </button>
+      {state.error && <div>{state.error}</div>}
+      <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
       <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
     </div>
   );
