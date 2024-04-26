@@ -1,13 +1,14 @@
-// useState EXAMPLE
+// FIRST EXAMPLE
 // import Post from "./Post";
 // import "./post.css";
 
 // SECOND EXAMPLE
-import Form from "./hooks/useReducerHook/EgTwo/Form";
+import Form from "./Form";
+import "./form.css";
 
 function App() {
   return (
-    // useState EXAMPLE
+    // FIRST EXAMPLE
     // <Post />
 
     // SECOND EXAMPLE
