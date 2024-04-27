@@ -1,7 +1,11 @@
-import React from "react";
+import MemoAssignTwo from "./hooks/useMemo/MemoAssignTwo";
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <MemoAssignTwo />
+    </div>
+  );
 };
 
 export default App;
