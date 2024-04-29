@@ -1,9 +1,9 @@
-import MemoAssignTwo from "./hooks/useMemo/MemoAssignTwo";
+import UseRefAssignOne from "./hooks/useRef/UseRefAssignOne";
 
 const App = () => {
   return (
     <div>
-      <MemoAssignTwo />
+      <UseRefAssignOne />
     </div>
   );
 };
