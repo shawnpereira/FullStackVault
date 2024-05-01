@@ -1,3 +1,4 @@
+//same as before just more complex
 import React, { useState } from "react";
 
 const App = () => {
@@ -16,11 +17,11 @@ const Count = ({ count }) => {
 };
 
 //Just the UI
-const Buttons = ({ Addition, Subtract }) => {
+const Buttons = ({ handleAddition, handleSubtract }) => {
   return (
     <div>
-      <button onClick={Addition}>Add</button>
-      <button onClick={Subtract}>Subtract</button>
+      <button onClick={handleAddition}>Increase</button>
+      <button onClick={handleSubtract}>Decrease</button>
     </div>
   );
 };
@@ -33,12 +34,7 @@ const Operation = ({ count, setCount }) => {
   const handleSubtract = () => {
     setCount(count - 1);
   };
-
-  return (
-    <div>
-      <Buttons Addition={handleAddition} Subtract={handleSubtract} />
-    </div>
-  );
+  return { handleAddition, handleSubtract };
 };
 
 export default App;
