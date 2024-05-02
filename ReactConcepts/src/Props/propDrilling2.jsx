@@ -1,4 +1,3 @@
-//same as before just more complex
 import React, { useState } from "react";
 
 const App = () => {
@@ -7,17 +6,21 @@ const App = () => {
   return (
     <div>
       <Count count={count} />
-      <Operation count={count} setCount={setCount} />
+      <Buttons count={count} setCount={setCount} />
     </div>
   );
 };
-//UI FOR COUNT
+
+// UI for displaying the count
 const Count = ({ count }) => {
   return <div>{count}</div>;
 };
 
-//Just the UI
-const Buttons = ({ handleAddition, handleSubtract }) => {
+// Buttons component responsible for UI and receiving logic functions
+const Buttons = ({ count, setCount }) => {
+  // Logic for handling addition and subtraction
+  const { handleAddition, handleSubtract } = Operation({ count, setCount });
+
   return (
     <div>
       <button onClick={handleAddition}>Increase</button>
@@ -25,7 +28,8 @@ const Buttons = ({ handleAddition, handleSubtract }) => {
     </div>
   );
 };
-//Logic
+
+// Operation component responsible for defining logic functions
 const Operation = ({ count, setCount }) => {
   const handleAddition = () => {
     setCount(count + 1);
@@ -34,6 +38,8 @@ const Operation = ({ count, setCount }) => {
   const handleSubtract = () => {
     setCount(count - 1);
   };
+
+  // Return the logic functions
   return { handleAddition, handleSubtract };
 };
 
