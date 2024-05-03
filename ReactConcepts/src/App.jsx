@@ -1,9 +1,11 @@
-import React from "react";
-import Eg7Renderer from "./hooks/customHooks/Eg7Renderer";
+import AppIndex from "./hooks/customHookCurrencyProject/AppIndex";
 
 const App = () => {
-  Eg7Renderer();
-  return <div>hello</div>;
+  return (
+    <div className=" text-red-600">
+      <AppIndex />
+    </div>
+  );
 };
 
 export default App;
