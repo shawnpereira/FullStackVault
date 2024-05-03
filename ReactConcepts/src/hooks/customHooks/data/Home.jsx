@@ -3,6 +3,8 @@ import useQuery from "./useQuery.jsx";
 
 function Home() {
   const URL = "https://pokeapi.co/api/v2/pokemon/ditto";
+  //
+  //
   const { data, fetcher } = useQuery(URL);
   const [pokemonName, setPokemonName] = useState("");
 
