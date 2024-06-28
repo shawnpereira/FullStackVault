@@ -1,10 +1,9 @@
-import React from "react";
-import AppMain from "./hooks/useContext/ExampleFour/AppMain";
+import Login from "./railway/Login/Login";
 
 const App = () => {
   return (
     <div>
-      <AppMain />
+      <Login />
     </div>
   );
 };
