@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Login.css"; // Import your CSS file
+import "./Login.css";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -31,7 +31,6 @@ const Login = () => {
   const SignUpForm = () => {
     return (
       <div className="signup-form">
-        <h2 className="title-white">Neha's Railways</h2>
         <div className="line-white"></div>
         <h3 className="sub-title-white">Create Account!</h3>
 
@@ -58,7 +57,7 @@ const Login = () => {
     <div className="container">
       <main className="content">
         <div className="logo">
-          <p className="logo-text">Neha's Railways</p>
+          <p className="logo-text"> Railways</p>
           <p className="logo-sub-text">Explore and travel with us!</p>
         </div>
         {isLogin ? <LoginForm /> : <SignUpForm />}

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f0f4f7; /* Adjust as needed */
+  background-color: #062136;
   padding: 1rem;
 }
 
@@ -14,11 +14,13 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 40rem; /* Adjust width as needed */
+  max-width: 40rem;
   background-color: #ffffff;
   border-radius: 1rem;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Adjust shadow as needed */
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  margin: 1rem;
+  margin-left: 14rem;
 }
 
 .logo {
@@ -127,4 +129,11 @@
 
 .text-white {
   color: #ffffff;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #062136; /* Ensure body and html have the desired background color */
 }
