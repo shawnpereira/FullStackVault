@@ -1,56 +1,69 @@
-import "./Login.css";
+import React, { useState } from "react";
+import "./Login.css"; // Import your CSS file
 
 const Login = () => {
-  return (
-    <section className="body">
-      <div className="container">
-        <div className="card">
-          <div className="card-content">
-            <h1>Sign in to your account</h1>
-            <form action="#">
-              <div className="form-group">
-                <label htmlFor="email">Your email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="name@company.com"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="••••••••"
-                  required
-                />
-              </div>
-              <div className="checkbox-group">
-                <input
-                  id="remember"
-                  aria-describedby="remember"
-                  type="checkbox"
-                  required
-                />
-                <label htmlFor="remember">Remember me</label>
-              </div>
-              <a href="#" className="forgot-password">
-                Forgot password?
-              </a>
-              <button type="submit" className="submit-btn">
-                Sign in
-              </button>
-              <p className="sign-up-link">
-                Don’t have an account yet? <a href="#">Sign up</a>
-              </p>
-            </form>
-          </div>
+  const [isLogin, setIsLogin] = useState(true);
+
+  const LoginForm = () => {
+    return (
+      <div className="login-form">
+        <div className="line"></div>
+        <h3 className="sub-title">Sign In!</h3>
+
+        <div className="input-group">
+          <input type="email" className="input" placeholder="Email"></input>
+          <input
+            type="password"
+            className="input"
+            placeholder="Password"
+          ></input>
+          <button className="button">Sign In</button>
         </div>
+
+        <p className="text">Don't have an account?</p>
+        <p className="link" onClick={() => setIsLogin(false)}>
+          Create a New Account?
+        </p>
       </div>
-    </section>
+    );
+  };
+
+  const SignUpForm = () => {
+    return (
+      <div className="signup-form">
+        <h2 className="title-white">Neha's Railways</h2>
+        <div className="line-white"></div>
+        <h3 className="sub-title-white">Create Account!</h3>
+
+        <div className="input-group">
+          <input type="text" className="input" placeholder="Name"></input>
+          <input type="email" className="input" placeholder="Email"></input>
+          <input
+            type="password"
+            className="input"
+            placeholder="Password"
+          ></input>
+          <button className="button-white">Sign Up</button>
+        </div>
+
+        <p className="text-white">Already have an account?</p>
+        <p className="link-white" onClick={() => setIsLogin(true)}>
+          Sign In to your Account?
+        </p>
+      </div>
+    );
+  };
+
+  return (
+    <div className="container">
+      <main className="content">
+        <div className="logo">
+          <p className="logo-text">Neha's Railways</p>
+          <p className="logo-sub-text">Explore and travel with us!</p>
+        </div>
+        {isLogin ? <LoginForm /> : <SignUpForm />}
+      </main>
+    </div>
   );
 };
 
