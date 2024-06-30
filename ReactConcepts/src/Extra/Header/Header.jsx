@@ -54,6 +54,7 @@ const Header = () => {
             <option value="second class">First Class (F)</option>
           </select>
         </div>
+        <button className="headerbtn">Search</button>
       </form>
     </div>
   );

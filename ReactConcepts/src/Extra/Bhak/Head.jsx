@@ -36,13 +36,11 @@ const Head = () => {
             <div className="header-class">
               <MdOutlineWork className="header-icon" />
               <div className="dropdown">
-                <input type="text" placeholder="All Classes" />
-                <RiArrowDropDownLine />
-              </div>
-              <div className="class">
-                <li>SLEEPER (S)</li>
-                <li>AC 2 TIER (2A)</li>
-                <li>FIRST CLASS (F)</li>
+                <select id="class">
+                  <option value="all-classes">Sleeper (S)</option>
+                  <option value="second class">AC 2 Tier (2A) </option>
+                  <option value="second class">First Class (F)</option>
+                </select>
               </div>
             </div>
           </div>
