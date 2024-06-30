@@ -1,20 +1,39 @@
-/* src/BookTicket.css */
 body {
-  background-image: url("/Train.jpg"); /* Ensure the path is correct */
+  background-image: url("/bbb.jpg"); /* Ensure the path is correct */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
+.title {
+  color: rgb(0, 0, 255);
+  font: bolder;
+}
+
+.side {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.cen {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 .book-ticket {
-  width: 300px;
+  width: 400px;
   margin: 50px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
-  background-color: rgba(255, 255, 255, 0.8); /* Added for better readability */
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .book-ticket h1 {
