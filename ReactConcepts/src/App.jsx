@@ -1,9 +1,10 @@
-import Login from "./railway/Login/Login";
+import React from "react";
+import Header from "./railway/Header/Header";
 
 const App = () => {
   return (
     <div>
-      <Login />
+      <Header />
     </div>
   );
 };
